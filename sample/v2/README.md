@@ -10,17 +10,17 @@ npm run build
 ## 2. Set Environment Variables
 
 ```
-REACT_APP_COLOR=navy REACT_APP_LOGO_URL=https://i.imgur.com/RAylUAO.png REACT_APP_MAIN_TEXT=react-inject-env REACT_APP_LINK_URL=https://www.npmjs.com/package/react-inject-env npx react-inject-env set
+VITE_COLOR=navy VITE_LOGO_URL=https://i.imgur.com/RAylUAO.png VITE_MAIN_TEXT=vite-inject-env VITE_LINK_URL=https://www.npmjs.com/package/vite-inject-env npx vite-inject-env set
 
 # Formatted
-REACT_APP_COLOR=navy \
-REACT_APP_LOGO_URL=https://i.imgur.com/RAylUAO.png \
-REACT_APP_MAIN_TEXT=react-inject-env \
-REACT_APP_LINK_URL=https://www.npmjs.com/package/react-inject-env \
-npx react-inject-env set
+VITE_COLOR=navy \
+VITE_LOGO_URL=https://i.imgur.com/RAylUAO.png \
+VITE_MAIN_TEXT=vite-inject-env \
+VITE_LINK_URL=https://www.npmjs.com/package/vite-inject-env \
+npx vite-inject-env set
 
 # Windows
-set REACT_APP_COLOR=navy&& set REACT_APP_LOGO_URL=https://i.imgur.com/RAylUAO.png&& set REACT_APP_MAIN_TEXT=react-inject-env&& set REACT_APP_LINK_URL=https://www.npmjs.com/package/react-inject-env&& npx react-inject-env set
+set VITE_COLOR=navy&& set VITE_LOGO_URL=https://i.imgur.com/RAylUAO.png&& set VITE_MAIN_TEXT=vite-inject-env&& set VITE_LINK_URL=https://www.npmjs.com/package/vite-inject-env&& npx vite-inject-env set
 ```
 
 ## 3. Serve
@@ -34,11 +34,11 @@ npx http-server build
 Try changing some variables and re-run step #2 and step #3.
 
 ```
-REACT_APP_COLOR=purple \
-REACT_APP_LOGO_URL=https://i.imgur.com/RAylUAO.png \
-REACT_APP_MAIN_TEXT="Insert Text here" \
-REACT_APP_LINK_URL=https://my.link \
-npx react-inject-env set && npx http-server build
+VITE_COLOR=purple \
+VITE_LOGO_URL=https://i.imgur.com/RAylUAO.png \
+VITE_MAIN_TEXT="Insert Text here" \
+VITE_LINK_URL=https://my.link \
+npx vite-inject-env set && npx http-server build
 ```
 
 ## 5. Usage with dotenv
@@ -46,16 +46,16 @@ npx react-inject-env set && npx http-server build
 You may also use variables from dotenv. Create a `.env` file at `sample/v2/.env` and paste the following variables:
 
 ```
-REACT_APP_COLOR = black
-REACT_APP_LOGO_URL = https://c.tenor.com/tIgmDpBGuKQAAAAd/kim-petras-i-love-you.gif
-REACT_APP_MAIN_TEXT = Text from .env
-REACT_APP_LINK_URL = https://my.link
+VITE_COLOR = black
+VITE_LOGO_URL = https://c.tenor.com/tIgmDpBGuKQAAAAd/kim-petras-i-love-you.gif
+VITE_MAIN_TEXT = Text from .env
+VITE_LINK_URL = https://my.link
 ```
 
 Then run the following command:
 
 ```
-npx react-inject-env set && npx http-server build
+npx vite-inject-env set && npx http-server build
 ```
 
 Note: Environment variables passed from the command line will always overwrite `.env` variables
@@ -65,18 +65,18 @@ Note: Environment variables passed from the command line will always overwrite `
 Build the Docker image
 
 ```
-docker build . -t react-inject-env-sample-v2
+docker build . -t vite-inject-env-sample-v2
 ```
 
 Run with environment variables
 
 ```
 docker run -p 8080:8080 \                   
--e REACT_APP_COLOR=yellow \
--e REACT_APP_LOGO_URL=./logo512.png \
--e REACT_APP_MAIN_TEXT="docker text" \
--e REACT_APP_LINK_URL=https://docker.link \
-react-inject-env-sample-v2
+-e VITE_COLOR=yellow \
+-e VITE_LOGO_URL=./logo512.png \
+-e VITE_MAIN_TEXT="docker text" \
+-e VITE_LINK_URL=https://docker.link \
+vite-inject-env-sample-v2
 ```
 
 You may also SSH directly into the Docker container to modify the `.env` file.

@@ -1,16 +1,16 @@
-# react-inject-env
+# vite-inject-env
 
-`react-inject-env` is a tool that allows you to inject your environment variables after building the static files, allowing you to deploy the same build to multiple environments quickly.
+`vite-inject-env` is a tool that allows you to inject your environment variables after building the static files, allowing you to deploy the same build to multiple environments quickly.
 
 ## Usage
 
 [Sample project](./sample/v2/README.md)
 
-### 1. Install react-inject-env
+### 1. Install vite-inject-env
 
 ```
-npm install react-inject-env --save-dev
-yarn add react-inject-env --dev
+npm install vite-inject-env --save-dev
+yarn add vite-inject-env --dev
 ```
 
 ### 2. Update Code
@@ -24,18 +24,18 @@ yarn add react-inject-env --dev
 - Create a new file called `env.js` and copy the following code:
 
 ```js
-export const env = { ...process.env, ...window['env'] }
+export const env = { ...import.meta.env, ...window['env'] }
 ```
 
-- Replace all instances of `process.env` with the newly created `env` variable
+- Replace all instances of `import.meta.env` with the newly created `env` variable
 
 ```jsx
 import { env } from './env'
 
 export const App = () => {
   return (
-    <div style={{backgroundColor: env.REACT_APP_COLOR}}>
-      <span>{env.REACT_APP_MAIN_TEXT}</span>
+    <div style={{backgroundColor: env.VITE_COLOR}}>
+      <span>{env.VITE_MAIN_TEXT}</span>
     </div>
   )
 }
@@ -48,20 +48,20 @@ If you are using `create-react-app`, the command should be `npm run build` or `r
 ### 4. Inject environment variables
 
 ```
-[env variables] npx react-inject-env set
+[env variables] npx vite-inject-env set
 ```
 
 Pass in all your environment variables.
 
 ```shell
 # with a black background
-REACT_APP_COLOR=black REACT_APP_MAIN_TEXT="Black Background" npx react-inject-env set
+VITE_COLOR=black VITE_MAIN_TEXT="Black Background" npx vite-inject-env set
 
 # with a blue background
-REACT_APP_COLOR=blue REACT_APP_MAIN_TEXT="Blue Background" npx react-inject-env set
+VITE_COLOR=blue VITE_MAIN_TEXT="Blue Background" npx vite-inject-env set
 
 # for windows
-set REACT_APP_COLOR=navy&& set REACT_APP_MAIN_TEXT=Navy Background&& npx react-inject-env set
+set VITE_COLOR=navy&& set VITE_MAIN_TEXT=Navy Background&& npx vite-inject-env set
 ```
 
 ### Additional options
@@ -74,7 +74,7 @@ set REACT_APP_COLOR=navy&& set REACT_APP_MAIN_TEXT=Navy Background&& npx react-i
 
 ## .env / dotenv
 
-`.env` files are supported. `react-inject-env` will automatically detect environment variables in your `.env` file located in your root folder.
+`.env` files are supported. `vite-inject-env` will automatically detect environment variables in your `.env` file located in your root folder.
 
 Note: Environment variables passed in through the command line will take precedence over `.env` variables.
 
@@ -91,12 +91,12 @@ declare global {
 
 // change with your own variables
 type EnvType = {
-  REACT_APP_COLOR: string,
-  REACT_APP_MAIN_TEXT: string,
-  REACT_APP_LINK_URL: string,
-  REACT_APP_LOGO_URL: string
+  VITE_COLOR: string,
+  VITE_MAIN_TEXT: string,
+  VITE_LINK_URL: string,
+  VITE_LOGO_URL: string
 }
-export const env: EnvType = { ...process.env, ...window.env }
+export const env: EnvType = { ...import.meta.env, ...window.env }
 ```
 
 ## Docker / CICD
@@ -115,18 +115,18 @@ RUN npm run build
 
 EXPOSE 8080
 
-ENTRYPOINT npx react-inject-env set && npx http-server build
+ENTRYPOINT npx vite-inject-env set && npx http-server build
 ```
 
 ```shell
-docker build . -t react-inject-env-sample-v2
+docker build . -t vite-inject-env-sample-v2
 
 docker run -p 8080:8080 \                   
--e REACT_APP_COLOR=yellow \
--e REACT_APP_LOGO_URL=./logo512.png \
--e REACT_APP_MAIN_TEXT="docker text" \
--e REACT_APP_LINK_URL=https://docker.link \
-react-inject-env-sample-v2
+-e VITE_COLOR=yellow \
+-e VITE_LOGO_URL=./logo512.png \
+-e VITE_MAIN_TEXT="docker text" \
+-e VITE_LINK_URL=https://docker.link \
+vite-inject-env-sample-v2
 ```
 
 ## Previous Version v1.0
@@ -145,7 +145,7 @@ There have been a few workarounds, with the most common solution being to load e
 
 ### Goals
 
-`react-inject-env` attempts to solve this problem in the simplest, and most straightforward way with the following goals in mind:
+`vite-inject-env` attempts to solve this problem in the simplest, and most straightforward way with the following goals in mind:
 
 1. Does not require a rebuild
 2. Minimal code change required
@@ -156,6 +156,6 @@ There have been a few workarounds, with the most common solution being to load e
 
 ### Compatibility
 
-`react-inject-env` was built with support for both `create-react-app` and `dotenv`. 
+`vite-inject-env` was built with support for both `create-react-app` and `dotenv`. 
 
 However due to the simplicity of it, it should work with almost all scripts and tools.

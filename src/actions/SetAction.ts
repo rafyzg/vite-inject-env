@@ -31,7 +31,7 @@ export class SetAction extends CommandLineAction {
       parameterShortName: '-d',
       argumentName: 'PATH_TO_BUILD_FOLDER',
       defaultValue: './build',
-      required: false,
+      required: false
     })
 
     this._fileName = this.defineStringParameter({
@@ -40,7 +40,7 @@ export class SetAction extends CommandLineAction {
       parameterShortName: '-n',
       argumentName: 'NAME_OF_ENV_FILE',
       defaultValue: 'env.js',
-      required: false,
+      required: false
     })
 
     this._varName = this.defineStringParameter({
@@ -49,7 +49,7 @@ export class SetAction extends CommandLineAction {
       parameterShortName: '-v',
       argumentName: 'VAR_NAME',
       defaultValue: 'env',
-      required: false,
+      required: false
     })
   }
 
@@ -57,7 +57,7 @@ export class SetAction extends CommandLineAction {
     super({
       actionName: 'set',
       summary: 'Set environment variables into your React /build folder.',
-      documentation: 'TODO',
+      documentation: 'TODO'
     })
   }
 

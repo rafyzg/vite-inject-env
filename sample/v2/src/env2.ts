@@ -4,9 +4,9 @@ declare global {
   }
 }
 type EnvType = {
-  REACT_APP_COLOR: string,
-  REACT_APP_MAIN_TEXT: string,
-  REACT_APP_LINK_URL: string,
-  REACT_APP_LOGO_URL: string
+  VITE_COLOR: string,
+  VITE_MAIN_TEXT: string,
+  VITE_LINK_URL: string,
+  VITE_LOGO_URL: string
 }
 export const env: EnvType = { ...process.env, ...window.env }

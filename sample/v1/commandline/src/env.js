@@ -1,6 +1,6 @@
 export const env = {
-    REACT_APP_COLOR: process.env.REACT_APP_COLOR,
-    REACT_APP_LOGO_URL: process.env.REACT_APP_LOGO_URL,
-    REACT_APP_MAIN_TEXT: process.env.REACT_APP_MAIN_TEXT,
-    REACT_APP_LINK_URL: process.env.REACT_APP_LINK_URL
+    VITE_COLOR: process.env.VITE_COLOR,
+    VITE_LOGO_URL: process.env.VITE_LOGO_URL,
+    VITE_MAIN_TEXT: process.env.VITE_MAIN_TEXT,
+    VITE_LINK_URL: process.env.VITE_LINK_URL
 }

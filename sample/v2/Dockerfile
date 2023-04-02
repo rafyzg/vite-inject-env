@@ -7,4 +7,4 @@ RUN npm run build
 
 EXPOSE 8080
 
-ENTRYPOINT npx react-inject-env set && npx http-server build
+ENTRYPOINT npx vite-inject-env set && npx http-server build

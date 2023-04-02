@@ -58,13 +58,12 @@ export class BuildAction extends CommandLineAction {
 
     this._bypassEnvVar = this.defineStringListParameter({
       parameterLongName: '--bypass',
-      description:
-        'react-inject-env will use these environment variables when building and not substitute placeholders',
+      description: 'vite-inject-env will use these environment variables when building and not substitute placeholders',
       argumentName: 'ENV_VARIABLE_NAME'
     })
 
     this._userCommand = this.defineCommandLineRemainder({
-      description: 'Enter your build command here (eg. `react-inject-env build npm run build`)'
+      description: 'Enter your build command here (eg. `vite-inject-env build npm run build`)'
     })
   }
 }

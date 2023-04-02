@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "http-server": "^13.0.2",
-    "react-inject-env": "^1.0.1"
+    "vite-inject-env": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -2,7 +2,7 @@ import { Cfg } from '../app/Config'
 
 export function formatEnvToCliString(env: Record<string, string>): string {
   let envString = ''
-  Object.keys(env).forEach(key => {
+  Object.keys(env).forEach((key) => {
     envString += `${key}=${Cfg.PLACEHOLDER_2}${key} `
   })
   return envString
