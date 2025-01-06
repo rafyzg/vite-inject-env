@@ -1,8 +1,8 @@
 node_modules
 dist
 .idea
-build
-build-*
+dist
+dist-*
 **/public/env.js
 
 # src/**/*.js

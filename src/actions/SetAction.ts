@@ -56,7 +56,7 @@ export class SetAction extends CommandLineAction {
   public constructor() {
     super({
       actionName: 'set',
-      summary: 'Set environment variables into your React /dist folder.',
+      summary: 'Set environment variables into your Vite /dist folder.',
       documentation: 'TODO'
     })
   }
