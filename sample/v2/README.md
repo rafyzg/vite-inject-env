@@ -26,7 +26,7 @@ set VITE_COLOR=navy&& set VITE_LOGO_URL=https://i.imgur.com/RAylUAO.png&& set VI
 ## 3. Serve
 
 ```
-npx http-server build 
+npx http-server dist
 ```
 
 ## 4. Change variables and re-serve
