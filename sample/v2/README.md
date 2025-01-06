@@ -38,7 +38,7 @@ VITE_COLOR=purple \
 VITE_LOGO_URL=https://i.imgur.com/RAylUAO.png \
 VITE_MAIN_TEXT="Insert Text here" \
 VITE_LINK_URL=https://my.link \
-npx vite-inject-env set && npx http-server build
+npx vite-inject-env set && npx http-server dist
 ```
 
 ## 5. Usage with dotenv
@@ -55,7 +55,7 @@ VITE_LINK_URL = https://my.link
 Then run the following command:
 
 ```
-npx vite-inject-env set && npx http-server build
+npx vite-inject-env set && npx http-server dist
 ```
 
 Note: Environment variables passed from the command line will always overwrite `.env` variables
