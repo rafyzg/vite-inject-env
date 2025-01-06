@@ -5,14 +5,14 @@ import { retrieveDotEnvCfg, retrieveReactEnvCfg } from '../utils/Utils'
 export class SetAction extends CommandLineAction {
   private _dir!: CommandLineStringParameter
   get dir(): string {
-    // --dir has a default value of 'build'
+    // --dir has a default value of 'dist'
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return this._dir.value!
   }
 
   private _fileName!: CommandLineStringParameter
   get fileName(): string {
-    // --dir has a default value of 'build'
+    // --dir has a default value of 'dist'
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return this._fileName.value!
   }
@@ -26,11 +26,11 @@ export class SetAction extends CommandLineAction {
 
   protected onDefineParameters(): void {
     this._dir = this.defineStringParameter({
-      description: 'Specify the location of your build folder',
+      description: 'Specify the location of your dist folder',
       parameterLongName: '--dir',
       parameterShortName: '-d',
       argumentName: 'PATH_TO_BUILD_FOLDER',
-      defaultValue: './build',
+      defaultValue: './dist',
       required: false
     })
 
@@ -56,7 +56,7 @@ export class SetAction extends CommandLineAction {
   public constructor() {
     super({
       actionName: 'set',
-      summary: 'Set environment variables into your React /build folder.',
+      summary: 'Set environment variables into your React /dist folder.',
       documentation: 'TODO'
     })
   }
