@@ -1,3 +1,8 @@
+declare global {
+  interface Window {
+    env: any
+  }
+}
 type EnvType = {
   VITE_COLOR: string,
   VITE_MAIN_TEXT: string,
