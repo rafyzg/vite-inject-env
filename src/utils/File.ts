@@ -46,7 +46,7 @@ export function replaceFilesInDir(dir: string) {
 }
 
 export function outputEnvFile(folder: string, fileName: string, envCfg: Record<string, string>, varName: string) {
-  shell.mkdir('-p', './build')
+  shell.mkdir('-p', `./${folder}`)
   console.info('Setting the following environment variables:')
   console.info(envCfg)
   writeFileSync(`${folder}/${fileName}`, `window.${varName} = ${JSON.stringify(envCfg, null, 2)}`)
