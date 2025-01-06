@@ -18,7 +18,7 @@ yarn add vite-inject-env --dev
 - Add the following to `index.html`
 
 ```html
-<script src='/env.js'></script>
+<script type='module' src='/env.js'></script>
 ```
 
 - Create a new file called `env.js` and copy the following code:
@@ -43,7 +43,7 @@ export const App = () => {
 
 ### 3. Build your static files
 
-If you are using `create-react-app`, the command should be `npm run build` or `react-scripts build`.
+If you are using `vite`, the command should be `npm run build` or `vite build`.
 
 ### 4. Inject environment variables
 
@@ -66,7 +66,7 @@ set VITE_COLOR=navy&& set VITE_MAIN_TEXT=Navy Background&& npx vite-inject-env s
 
 ### Additional options
 
-`-d / --dir`: The location of your static build folder. Defaults to `./build`
+`-d / --dir`: The location of your static build folder. Defaults to `./dist`
 
 `-n / --name`: The name of the env file that is outputted. Defaults to `env.js`
 
@@ -101,7 +101,7 @@ export const env: EnvType = { ...import.meta.env, ...window.env }
 
 ## Docker / CICD
 
-`npx-react-env` works well with both Docker and CI/CD. 
+`vite-inject-env` works well with both Docker and CI/CD. 
 
 [Sample usage with Docker](./sample/v2/README.md#Docker)
 
@@ -115,7 +115,7 @@ RUN npm run build
 
 EXPOSE 8080
 
-ENTRYPOINT npx vite-inject-env set && npx http-server build
+ENTRYPOINT npx vite-inject-env set && npx http-server dist
 ```
 
 ```shell
@@ -156,6 +156,6 @@ There have been a few workarounds, with the most common solution being to load e
 
 ### Compatibility
 
-`vite-inject-env` was built with support for both `create-react-app` and `dotenv`. 
+`vite-inject-env` was built with support for both `vite` and `dotenv`. 
 
 However due to the simplicity of it, it should work with almost all scripts and tools.

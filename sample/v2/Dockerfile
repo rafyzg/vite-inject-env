@@ -1,4 +1,4 @@
-FROM node:16.10-slim
+FROM node:18
 COPY . /app
 WORKDIR /app
 
@@ -7,4 +7,4 @@ RUN npm run build
 
 EXPOSE 8080
 
-ENTRYPOINT npx vite-inject-env set && npx http-server build
+ENTRYPOINT npx vite-inject-env set && npx http-server dist

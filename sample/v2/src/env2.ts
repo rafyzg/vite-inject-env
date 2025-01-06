@@ -9,4 +9,4 @@ type EnvType = {
   VITE_LINK_URL: string,
   VITE_LOGO_URL: string
 }
-export const env: EnvType = { ...process.env, ...window.env }
+export const env: EnvType = { ...import.meta.env, ...window.env }

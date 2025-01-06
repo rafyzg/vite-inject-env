@@ -3,13 +3,14 @@
 You may run the following commands to test out this project:
 
 ## 1. Build
-```
+
+```sh
 npm run build
 ```
 
 ## 2. Set Environment Variables
 
-```
+```sh
 VITE_COLOR=navy VITE_LOGO_URL=https://i.imgur.com/RAylUAO.png VITE_MAIN_TEXT=vite-inject-env VITE_LINK_URL=https://www.npmjs.com/package/vite-inject-env npx vite-inject-env set
 
 # Formatted
@@ -25,27 +26,27 @@ set VITE_COLOR=navy&& set VITE_LOGO_URL=https://i.imgur.com/RAylUAO.png&& set VI
 
 ## 3. Serve
 
-```
-npx http-server build 
+```sh
+npx http-server dist
 ```
 
 ## 4. Change variables and re-serve
 
 Try changing some variables and re-run step #2 and step #3.
 
-```
+```sh
 VITE_COLOR=purple \
 VITE_LOGO_URL=https://i.imgur.com/RAylUAO.png \
 VITE_MAIN_TEXT="Insert Text here" \
 VITE_LINK_URL=https://my.link \
-npx vite-inject-env set && npx http-server build
+npx vite-inject-env set && npx http-server dist
 ```
 
 ## 5. Usage with dotenv
 
 You may also use variables from dotenv. Create a `.env` file at `sample/v2/.env` and paste the following variables:
 
-```
+```js
 VITE_COLOR = black
 VITE_LOGO_URL = https://c.tenor.com/tIgmDpBGuKQAAAAd/kim-petras-i-love-you.gif
 VITE_MAIN_TEXT = Text from .env
@@ -54,23 +55,23 @@ VITE_LINK_URL = https://my.link
 
 Then run the following command:
 
-```
-npx vite-inject-env set && npx http-server build
+```sh
+npx vite-inject-env set && npx http-server dist
 ```
 
 Note: Environment variables passed from the command line will always overwrite `.env` variables
 
-# Docker
+## Docker
 
 Build the Docker image
 
-```
+```sh
 docker build . -t vite-inject-env-sample-v2
 ```
 
 Run with environment variables
 
-```
+```sh
 docker run -p 8080:8080 \                   
 -e VITE_COLOR=yellow \
 -e VITE_LOGO_URL=./logo512.png \
